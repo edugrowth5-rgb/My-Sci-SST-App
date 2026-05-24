@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SUCCESS ZONE - Study Portal</title>
+    <link rel="stylesheet" href="HinSci.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+  <link rel="icon" type="image/png" href="QPfavicon.png">
+
+<link rel="apple-touch-icon" sizes="180x180" href="QPicon-180.png">
+
+<link rel="manifest" href="Hinmanifest.json">
+
+<meta name="theme-color" content="#1E90FF">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Success Zone">
+</head>
+<body>
+
+    <header class="top-bar">
+        <div class="header-left-group">
+            <button id="menu-toggle" class="icon-btn"><i class="fas fa-bars"></i></button>
+            <h1 class="logo">SUCCESS ZONE</h1>
+            <div class="dev-tag">Developed by: Prashant Sagar</div>
+        </div>
+        
+        <div class="header-right-group">
+            <div class="search-bar">
+                <input type="text" id="gSearch" placeholder="Search Google...">
+                <button onclick="voiceSearch()"><i class="fas fa-microphone"></i></button>
+                <button onclick="doSearch()"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="layout">
+        <aside class="sidebar-l" id="lSidebar">
+            <ul>
+                <li class="menu-label">Science (विज्ञान)</li>
+                <li onclick="loadChapter(1)"><i class="fas fa-leaf"></i> Class 7: पादपों में पोषण</li>
+                <li onclick="loadChapter(2)"><i class="fas fa-paw"></i> Class 7: प्राणियों में पोषण</li>
+                <li onclick="loadChapter(3)"><i class="fas fa-fire"></i> Class 7: ऊष्मा</li>
+                <li onclick="loadChapter(4)"><i class="fas fa-flask"></i> Class 7: अम्ल, क्षारक और लवण</li>
+
+                <hr style="border: 0.5px solid #555; margin: 10px 0; opacity: 0.3;">
+
+                <li class="menu-label">Social Studies (SST)</li>
+                <li onclick="loadChapter(5)"><i class="fas fa-globe-asia"></i> Class 7 Geo: पर्यावरण</li>
+            </ul>
+        </aside>
+
+        <main class="quiz-engine">
+            <div id="resume-box" class="overlay hidden">
+                <div class="card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3406/3406828.png" width="80" alt="Resume Icon">
+                    <h3>Welcome Back!</h3>
+                    <p>Would you like to resume from where you left off?</p>
+                    <div class="card-btns">
+                        <button onclick="initQuiz(true)" class="btn-primary">Resume</button>
+                        <button onclick="initQuiz(false)" class="btn-danger">Restart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-tile" id="mainTile">
+                <div class="content-controls">
+                    <div class="font-tools">
+                        <button onclick="fontSize(1.1)" title="Increase Font">A+</button>
+                        <button onclick="fontSize(0.9)" title="Decrease Font">A-</button>
+                        <button onclick="fullScreen()" title="Full Screen"><i class="fas fa-expand"></i></button>
+                    </div>
+                    <div class="tts-section">
+                        <button class="tts-btn" onclick="playQuestion()">
+                            <i class="fas fa-volume-up"></i> Listen to Question
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tile-header">
+                    <span id="progress-text">Question Loading...</span>
+                    <div class="score-chip">Score: <span id="liveScore">0</span></div>
+                </div>
+
+                <h2 id="qText">Get Ready...</h2>
+                <div id="options-grid" class="options-container"></div>
+
+                <div class="footer-nav">
+                    <button id="prevBtn" onclick="move(-1)" class="nav-btn">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button id="nextBtn" onclick="move(1)" class="nav-btn">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="HinSciCh1.js"></script>
+    <script src="HinSciCh2.js"></script>
+    <script src="HinSciCh3.js"></script>
+    <script src="HinSciCh4.js"></script>
+    <script src="HinSciCh5.js"></script>
+    
+    <script src="HinSci.js"></script>
+    
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./Hinsw.js')
+                .then((registration) => {
+                    console.log('ServiceWorker registered successfully');
+                })
+                .catch((error) => {
+                    console.log('ServiceWorker registration failed:', error);
+                });
+        });
+    }
+    </script>
+</body>
+</html>
