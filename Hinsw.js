@@ -5,6 +5,7 @@ const urlsToCache = [
   './index.html',
   './HinSci.css',
   './HinSci.js',
+  './BiharBoard.png',
   './HinSciCh1.js',
   './HinSciCh2.js',
   './HinSciCh3.js',
