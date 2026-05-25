@@ -42,6 +42,7 @@ function loadChapter(num) {
     else if(num === 3) { quizData = HinSciCh3Data; }
     else if(num === 4) { quizData = HinSciCh4Data; }
     else if(num === 5) { quizData = typeof HinGeoCh1Data !== 'undefined' ? HinGeoCh1Data : []; }
+    else if(num === 6) { quizData = typeof HinGeoCh2Data !== 'undefined' ? HinGeoCh2Data : []; }
     
     curIdx = 0;
     score = 0;
