@@ -11,6 +11,7 @@ const urlsToCache = [
   './HinSciCh4.js',
   './HinSciCh5.js',
   './HinSciCh6.js',
+  './HinSciCh7.js',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
 ];
 
